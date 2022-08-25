@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "@components/shared/Header";
 
 const Home = () => (
   <>
@@ -9,6 +10,9 @@ const Home = () => (
         content="Find your favourite Japanese media on 天国 (tengoku)! Built with Consumet, Next & React."
       />
     </Head>
+    <>
+      <Header />
+    </>
   </>
 );
 
