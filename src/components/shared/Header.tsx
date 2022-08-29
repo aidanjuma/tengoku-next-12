@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 const Header = () => (
-  <header className="w-full top-0 left-0 absolute bg-darkGray">
+  <header className="w-full top-0 left-0 absolute">
     <div className="flex justify-between items-center mx-auto px-12 py-6">
       <Link href="/">
         <Image

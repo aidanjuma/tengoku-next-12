@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "@components/shared/Header";
+import FeaturedContent from "@components/home/FeaturedContent";
 
 const Home = () => (
   <>
@@ -12,6 +13,7 @@ const Home = () => (
     </Head>
     <>
       <Header />
+      <FeaturedContent />
     </>
   </>
 );

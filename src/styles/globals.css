@@ -18,3 +18,29 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.h-140 {
+  height: 35rem;
+}
+
+.gradient {
+  background: linear-gradient(
+    360deg,
+    rgba(22, 21, 26, 0),
+    rgba(22, 21, 26, 0.9) 72.92%,
+    #16151a
+  );
+}
+
+.banner {
+  height: 360px;
+  margin-top: 0;
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.h-under-banner {
+  height: calc(35rem - 360px);
+}
