@@ -19,6 +19,13 @@ a {
   box-sizing: border-box;
 }
 
+@layer utilities {
+  .fix-justify {
+    word-spacing: -2px;
+    word-break: break-all;
+  }
+}
+
 .gradient {
   background: linear-gradient(
     360deg,
@@ -29,7 +36,6 @@ a {
 }
 
 .banner {
-  height: 500px;
   margin-top: 0;
   background-position: 50% 35%;
   background-repeat: no-repeat;

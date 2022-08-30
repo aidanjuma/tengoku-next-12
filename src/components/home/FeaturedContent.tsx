@@ -4,13 +4,13 @@ import Image from "next/image";
 const FeaturedContent = () => (
   <section id="featured-content-section" className="w-full h-[35rem]">
     <div
-      className="banner"
+      className="banner h-[380px] lg:h-[500px]"
       style={{
         backgroundImage:
           "url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/133844-uIaUmh5aJX3M.jpg)",
       }}
     ></div>
-    <div className="grid w-full h-under-banner px-5">
+    <div className="grid w-full h-under-banner px-5 lg:px-20">
       <div className="mt-[-190px] lg:mt-[-250px]">
         <div className="grid grid-cols-2 grid-rows-1">
           <div className="w-[160px] h-[226px] lg:w-[200px] lg:h-[282px] relative">
@@ -19,14 +19,15 @@ const FeaturedContent = () => (
               alt="Overlord IV's album image."
               layout="fill"
               objectFit="cover"
+              className="rounded"
             />
           </div>
-          <div className="text-right text-white">
-            <h2 className="font-lexend font-medium text-2xl pb-4">
+          <div className="text-white">
+            <h2 className="font-lexend font-medium text-2xl text-left pb-4">
               Overlord IV
             </h2>
-            <div className="h-32 lg:h-44 overflow-scroll">
-              <p className="font-dmsans font-normal text-base text-justify">
+            <div className="h-32 lg:h-44 overflow-y-scroll">
+              <p className="font-dmsans font-normal text-base text-justify fix-justify">
                 With his foundations now set in this new world, the first steps
                 of Ains Ooal Gown&apos;s master plan apparent begin to come to
                 fruition. The value of Carne village and especially the
