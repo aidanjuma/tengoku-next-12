@@ -19,10 +19,6 @@ a {
   box-sizing: border-box;
 }
 
-.h-140 {
-  height: 35rem;
-}
-
 .gradient {
   background: linear-gradient(
     360deg,

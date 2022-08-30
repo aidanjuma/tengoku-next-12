@@ -5,10 +5,8 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    // Tentative...
     colors: {
       white: "#ffffff",
-      darkGray: "#2d333b",
     },
   },
   plugins: [],
