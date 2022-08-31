@@ -8,6 +8,9 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
+  color: #ffffff;
+  background-color: #2b2a33;
+  font-family: "DM Sans", "sans-serif";
 }
 
 a {
@@ -22,17 +25,12 @@ a {
 @layer utilities {
   .fix-justify {
     word-spacing: -2px;
-    word-break: break-all;
+    word-break: keep-all;
   }
-}
 
-.gradient {
-  background: linear-gradient(
-    360deg,
-    rgba(22, 21, 26, 0),
-    rgba(22, 21, 26, 0.9) 72.92%,
-    #16151a
-  );
+  .webkit-rm-scrollbar::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 
 .banner {

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "@components/shared/Header";
 import FeaturedContent from "@components/home/FeaturedContent";
+import ContentSlider from "@components/shared/ContentSlider";
 
 const Home = () => (
   <>
@@ -14,6 +15,18 @@ const Home = () => (
     <>
       <Header />
       <FeaturedContent />
+      <section id="trending-anime-section">
+        <div className="flex justify-center items-center font-semibold text-3xl pb-8">
+          <h2>Trending Anime</h2>
+        </div>
+        <ContentSlider medium="ANIME" status="TRENDING" />
+      </section>
+      <section id="popular-anime-section" className="pt-8">
+        <div className="flex justify-center items-center font-semibold text-3xl pb-8">
+          <h2>Popular Anime</h2>
+        </div>
+        <ContentSlider medium="ANIME" status="POPULAR" />
+      </section>
     </>
   </>
 );

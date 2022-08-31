@@ -2,7 +2,10 @@ import React from "react";
 import Image from "next/image";
 
 const FeaturedContent = () => (
-  <section id="featured-content-section" className="w-full h-[35rem]">
+  <section
+    id="featured-content-section"
+    className="w-full h-[27.5rem] lg:h-[36rem]"
+  >
     <div
       className="banner h-[380px] lg:h-[500px]"
       style={{
@@ -27,7 +30,7 @@ const FeaturedContent = () => (
               Overlord IV
             </h2>
             <div className="h-32 lg:h-44 overflow-y-scroll">
-              <p className="font-dmsans font-normal text-base text-justify fix-justify">
+              <p className="font-normal text-base text-left fix-justify">
                 With his foundations now set in this new world, the first steps
                 of Ains Ooal Gown&apos;s master plan apparent begin to come to
                 fruition. The value of Carne village and especially the
