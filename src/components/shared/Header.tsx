@@ -15,9 +15,21 @@ const Header = () => (
           className="hover:cursor-pointer"
         />
       </Link>
-      <MagnifyingGlassIcon className="w-8 h-8 text-white" cursor={"pointer"} />
+      <MagnifyingGlassIcon
+        className="w-8 h-8 text-white"
+        cursor={"pointer"}
+        onClick={revealQuickSearch}
+      />
     </div>
   </header>
 );
+
+const revealQuickSearch = () => {
+  const quickSearch = document.getElementById("quick-search");
+  // Add scroll lock, show Quick Search...
+  document.body.classList.add("overflow-hidden");
+  quickSearch?.classList.remove("hidden");
+  quickSearch?.classList.add("flex", "justify-center");
+};
 
 export default Header;

@@ -44,3 +44,9 @@ a {
 .h-under-banner {
   height: calc(35rem - 360px);
 }
+
+.search-bar {
+  grid-auto-columns: 1fr;
+  grid-template-columns: 0.1fr 2fr 0.1fr;
+  grid-template-rows: 0.1fr;
+}
