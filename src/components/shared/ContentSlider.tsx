@@ -5,7 +5,7 @@ import { ContentType } from "@models/types";
 
 const ContentSlider = (props: ContentType) => {
   const [data, setData] = useState<IAnimeResult[] | null>(null);
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const anilist = new META.Anilist();
