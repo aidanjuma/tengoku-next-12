@@ -29,7 +29,7 @@ const FeaturedContent = () => (
             <h2 className="font-lexend font-medium text-2xl text-left pb-4">
               Overlord IV
             </h2>
-            <div className="h-32 lg:h-44 overflow-y-scroll">
+            <div className="h-32 lg:h-44 webkit-rm-scrollbar overflow-y-scroll">
               <p className="font-normal text-base text-left fix-justify">
                 With his foundations now set in this new world, the first steps
                 of Ains Ooal Gown&apos;s master plan apparent begin to come to
