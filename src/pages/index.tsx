@@ -7,7 +7,7 @@ import QuickSearch from "@components/shared/QuickSearch";
 const Home = () => (
   <>
     <Head>
-      <title>天国 • Anime & Manga</title>
+      <title>天国 • Anime &amp; Manga</title>
       <meta
         name="description"
         content="Find your favourite Japanese media on 天国 (tengoku)! Built with Consumet, Next & React."

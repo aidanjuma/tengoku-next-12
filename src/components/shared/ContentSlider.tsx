@@ -42,7 +42,7 @@ const ContentSlider = (props: ContentType) => {
     <div className="flex webkit-rm-scrollbar overflow-x-scroll w-full px-4">
       {data.map((item: IAnimeResult) => {
         const title: string | undefined =
-          typeof item.title === "string" ? item.title : item.title.english;
+          typeof item.title === "string" ? item.title : item.title?.english!;
         if (title != undefined)
           return (
             <div
