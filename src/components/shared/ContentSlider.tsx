@@ -44,7 +44,7 @@ const ContentSlider = (props: ContentType) => {
       {data.map((item: IAnimeResult) => {
         const title: string | undefined = getItemTitle(
           item.title,
-          TitleLanguage.english
+          TitleLanguage.romaji
         );
         if (title != undefined)
           return (

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import { META } from "@consumet/extensions";
 import { ISearch, IAnimeResult } from "@consumet/extensions/dist/models";
 import { useDebounce } from "@hooks/useDebounce";
+import { TitleLanguage } from "@models/types";
+import { getItemTitle } from "@helpers";
 
 const QuickSearch = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -42,12 +45,12 @@ const QuickSearch = () => {
   const showSearchResults = () => {
     const resultsDisplay = document.getElementById("quick-search-results");
     resultsDisplay?.classList.remove("hidden");
-    resultsDisplay?.classList.add("grid");
+    resultsDisplay?.classList.add("block");
   };
 
   const hideSearchResults = () => {
     const resultsDisplay = document.getElementById("quick-search-results");
-    resultsDisplay?.classList.remove("grid");
+    resultsDisplay?.classList.remove("block");
     resultsDisplay?.classList.add("hidden");
   };
 
@@ -59,9 +62,9 @@ const QuickSearch = () => {
   return (
     <div
       id="quick-search"
-      className="w-full h-full fixed z-[9999] hidden bg-grayedOut"
+      className="w-full h-full fixed z-10 hidden bg-grayedOut"
     >
-      <div className="grid quick-search-bar items-center justify-center py-4 rounded-md absolute top-36 md:top-48 lg:top-56 bg-white text-grayedOut">
+      <div className="grid quick-search-bar items-center justify-center py-4 rounded-md absolute top-36 md:top-48 lg:top-56 z-30 bg-white text-grayedOut">
         <MagnifyingGlassIcon className="w-6 h-6 ml-3 mr-6" />
         <input
           type="text"
@@ -77,8 +80,38 @@ const QuickSearch = () => {
       </div>
       <div
         id="quick-search-results"
-        className="hidden grid-cols-1 mt-48 lg:mt-64 mb-[20vh] px-[8.7rem] sm:px-[15.4rem] rounded-b bg-white"
-      ></div>
+        className="hidden mt-48 lg:mt-64 mb-[20vh] w-[17.5rem] sm:w-[31rem] rounded-b bg-white"
+      >
+        <div className="h-full px-4 py-4 md:py-16 lg:py-8 items-center webkit-rm-scrollbar overflow-y-scroll text-grayedOut">
+          {searchResults.map((item: IAnimeResult) => {
+            const title: string | undefined = getItemTitle(
+              item.title,
+              TitleLanguage.romaji
+            );
+            if (title != undefined) {
+              return (
+                <div
+                  key={item.id}
+                  className="flex flex-row items-center py-2 hover:cursor-pointer hover:text-lightBlue"
+                >
+                  <div className="w-16 h-16 relative">
+                    <Image
+                      src={item.image!}
+                      alt={`Cover image for anime ${item.id}:${item.title} - (provided by AniList).`}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded"
+                    />
+                  </div>
+                  <h3 className="w-4/5 text-sm sm:text-base font-medium mx-2 lg:mx-3 transition-all">
+                    {title}
+                  </h3>
+                </div>
+              );
+            }
+          })}
+        </div>
+      </div>
     </div>
   );
 };
