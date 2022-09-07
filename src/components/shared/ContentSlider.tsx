@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { META } from "@consumet/extensions";
 import { IAnimeResult, ISearch } from "@consumet/extensions/dist/models";
-import { ContentType } from "@models/types";
+import { ContentType, TitleLanguage } from "@models/types";
+import { getItemTitle } from "@helpers";
 
 const ContentSlider = (props: ContentType) => {
   const [data, setData] = useState<IAnimeResult[] | null>(null);
@@ -41,8 +42,10 @@ const ContentSlider = (props: ContentType) => {
   return (
     <div className="flex webkit-rm-scrollbar overflow-x-scroll w-full px-4">
       {data.map((item: IAnimeResult) => {
-        const title: string | undefined =
-          typeof item.title === "string" ? item.title : item.title?.english!;
+        const title: string | undefined = getItemTitle(
+          item.title,
+          TitleLanguage.english
+        );
         if (title != undefined)
           return (
             <div
