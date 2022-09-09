@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import { META } from "@consumet/extensions";
@@ -90,23 +91,22 @@ const QuickSearch = () => {
             );
             if (title != undefined) {
               return (
-                <div
-                  key={item.id}
-                  className="flex flex-row items-center py-2 hover:cursor-pointer hover:text-lightBlue"
-                >
-                  <div className="w-16 h-16 relative">
-                    <Image
-                      src={item.image!}
-                      alt={`Cover image for anime ${item.id}:${item.title} - (provided by AniList).`}
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded"
-                    />
+                <Link key={item.id} href={`/info/${item.id}`}>
+                  <div className="flex flex-row items-center py-2 hover:cursor-pointer hover:text-lightBlue">
+                    <div className="w-16 h-16 relative">
+                      <Image
+                        src={item.image!}
+                        alt={`Cover image for anime ${item.id}:${item.title} - (provided by AniList).`}
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded"
+                      />
+                    </div>
+                    <h3 className="w-4/5 text-sm sm:text-base font-medium mx-2 lg:mx-3 transition-all">
+                      {title}
+                    </h3>
                   </div>
-                  <h3 className="w-4/5 text-sm sm:text-base font-medium mx-2 lg:mx-3 transition-all">
-                    {title}
-                  </h3>
-                </div>
+                </Link>
               );
             }
           })}
