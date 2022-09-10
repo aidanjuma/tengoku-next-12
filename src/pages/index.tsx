@@ -1,8 +1,7 @@
 import Head from "next/head";
-import Header from "@components/shared/Header";
+import HeaderQuickSearch from "@components/shared/HeaderQuickSearch";
 import FeaturedContent from "@components/home/FeaturedContent";
 import ContentSlider from "@components/shared/ContentSlider";
-import QuickSearch from "@components/shared/QuickSearch";
 
 const Home = () => (
   <>
@@ -14,8 +13,7 @@ const Home = () => (
       />
     </Head>
     <>
-      <Header />
-      <QuickSearch />
+      <HeaderQuickSearch />
       <FeaturedContent />
       <section id="trending-anime-section">
         <div className="flex justify-center items-center font-semibold text-3xl pb-8">

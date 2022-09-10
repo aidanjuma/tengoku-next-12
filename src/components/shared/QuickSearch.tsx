@@ -61,10 +61,11 @@ const QuickSearch = () => {
   };
 
   return (
-    <div
-      id="quick-search"
-      className="w-full h-full fixed z-10 hidden bg-grayedOut"
-    >
+    <div id="quick-search" className="w-full h-full fixed z-10 hidden">
+      <div
+        className="fixed top-0 bottom-0 left-0 right-0 content-none -z-10 bg-grayedOut"
+        onClick={hideQuickSearch}
+      />
       <div className="grid quick-search-bar items-center justify-center py-4 rounded-md absolute top-36 md:top-48 lg:top-56 z-30 bg-white text-grayedOut">
         <MagnifyingGlassIcon className="w-6 h-6 ml-3 mr-6" />
         <input
@@ -92,7 +93,10 @@ const QuickSearch = () => {
             if (title != undefined) {
               return (
                 <Link key={item.id} href={`/info/${item.id}`}>
-                  <div className="flex flex-row items-center py-2 hover:cursor-pointer hover:text-lightBlue">
+                  <div
+                    className="flex flex-row items-center py-2 hover:cursor-pointer hover:text-lightBlue"
+                    onClick={hideQuickSearch}
+                  >
                     <div className="w-16 h-16 relative">
                       <Image
                         src={item.image!}

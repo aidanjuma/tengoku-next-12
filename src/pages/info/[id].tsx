@@ -1,5 +1,7 @@
 import React from "react";
 import Head from "next/head";
+import HeaderQuickSearch from "@components/shared/HeaderQuickSearch";
+import InfoCover from "@components/info/InfoCover";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
 import { IAnimeInfo } from "@consumet/extensions/dist/models";
@@ -14,6 +16,10 @@ const InfoPage = ({ info }: { info: IAnimeInfo }) => {
         <meta name="description" content={info.description!} />
         <meta name="theme-color" content={info.color ?? "#000000"} />
       </Head>
+      <>
+        <HeaderQuickSearch />
+        <InfoCover image={info.image} title={info.title} />
+      </>
     </>
   );
 };
