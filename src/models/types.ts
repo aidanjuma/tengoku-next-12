@@ -6,6 +6,7 @@ export interface ContentType {
 }
 
 export interface InfoCoverData {
+  cover?: string;
   image?: string;
   title: string | ITitle;
 }

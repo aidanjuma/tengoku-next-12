@@ -18,7 +18,11 @@ const InfoPage = ({ info }: { info: IAnimeInfo }) => {
       </Head>
       <>
         <HeaderQuickSearch />
-        <InfoCover image={info.image} title={info.title} />
+        <InfoCover
+          cover={typeof info.cover === "string" ? info.cover : undefined}
+          image={info.image ?? undefined}
+          title={info.title}
+        />
       </>
     </>
   );
