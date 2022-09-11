@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { META } from "@consumet/extensions";
 import { IAnimeResult, ISearch } from "@consumet/extensions/dist/models";
 import { ContentType, TitleLanguage } from "@models/types";
-import { getItemTitle } from "@helpers";
+import { processITitle } from "@helpers";
 
 const ContentSlider = (props: ContentType) => {
   const [data, setData] = useState<IAnimeResult[] | null>(null);
@@ -42,24 +43,23 @@ const ContentSlider = (props: ContentType) => {
   return (
     <div className="flex webkit-rm-scrollbar overflow-x-scroll w-full px-4">
       {data.map((item: IAnimeResult) => {
-        const title: string | undefined = getItemTitle(
+        const title: string | undefined = processITitle(
           item.title,
           TitleLanguage.romaji
         );
         if (title != undefined)
           return (
-            <div
-              key={item.id}
-              className="flex flex-col items-center text-center"
-            >
-              <div
-                className="w-32 h-48 mx-2 lg:mx-4 rounded-lg bg-cover bg-no-repeat bg-center"
-                style={{ backgroundImage: `url(${item.image})` }}
-              ></div>
-              <div className="w-32 h-20 webkit-rm-scrollbar overflow-y-scroll">
-                <p className="font-medium text-sm pt-3">{title}</p>
+            <Link key={item.id} href={`/info/${item.id}`}>
+              <div className="flex flex-col items-center text-center hover:cursor-pointer">
+                <div
+                  className="w-32 h-48 mx-2 lg:mx-4 rounded-lg bg-cover bg-no-repeat bg-center"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                ></div>
+                <div className="w-32 h-fit max-h-20 webkit-rm-scrollbar overflow-y-scroll">
+                  <p className="font-medium text-sm pt-3">{title}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           );
       })}
     </div>

@@ -6,7 +6,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 const HeaderQuickSearch = () => (
   <>
-    <header className="w-full top-0 left-0 absolute">
+    <header className="w-full top-0 left-0 z-10 absolute">
       <div className="flex justify-between items-center mx-auto px-12 py-6">
         <Link href="/">
           <Image

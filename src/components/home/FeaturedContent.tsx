@@ -19,7 +19,7 @@ const FeaturedContent = () => (
           <div className="w-[160px] h-[226px] lg:w-[200px] lg:h-[282px] relative">
             <Image
               src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx133844-E32FjKZ0XxEs.jpg"
-              alt="Overlord IV's album image."
+              alt={`Album image for the anime "Overlord IV".`}
               layout="fill"
               objectFit="cover"
               className="rounded"

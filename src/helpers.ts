@@ -15,7 +15,7 @@ const evaluateTitleLanguage = (
   }
 };
 
-export const getItemTitle = (
+export const processITitle = (
   titleObj: string | ITitle,
   language: TitleLanguage
 ) => {

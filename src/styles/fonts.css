@@ -88,3 +88,30 @@
     url("/fonts/dm-sans/woff/700i.woff") format("woff"),
     url("/fonts/dm-sans/ttf/700i.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "Zen Maru Gothic";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/zen-maru-gothic/woff2/400.woff2") format("woff2"),
+    url("/fonts/zen-maru-gothic/woff/400.woff") format("woff"),
+    url("/fonts/zen-maru-gothic/ttf/400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Zen Maru Gothic";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/zen-maru-gothic/woff2/500.woff2") format("woff2"),
+    url("/fonts/zen-maru-gothic/woff/500.woff") format("woff"),
+    url("/fonts/zen-maru-gothic/ttf/500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Zen Maru Gothic";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/zen-maru-gothic/woff2/700.woff2") format("woff2"),
+    url("/fonts/zen-maru-gothic/woff/700.woff") format("woff"),
+    url("/fonts/zen-maru-gothic/ttf/700.ttf") format("truetype");
+}

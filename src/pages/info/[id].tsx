@@ -6,13 +6,13 @@ import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
 import { IAnimeInfo } from "@consumet/extensions/dist/models";
 import { TitleLanguage } from "@models/types";
-import { getItemTitle } from "@helpers";
+import { processITitle } from "@helpers";
 
 const InfoPage = ({ info }: { info: IAnimeInfo }) => {
   return (
     <>
       <Head>
-        <title>天国 • {getItemTitle(info.title, TitleLanguage.romaji)}</title>
+        <title>天国 • {processITitle(info.title, TitleLanguage.romaji)}</title>
         <meta name="description" content={info.description!} />
         <meta name="theme-color" content={info.color ?? "#000000"} />
       </Head>

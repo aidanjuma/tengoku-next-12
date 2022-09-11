@@ -6,7 +6,7 @@ import { META } from "@consumet/extensions";
 import { ISearch, IAnimeResult } from "@consumet/extensions/dist/models";
 import { useDebounce } from "@hooks/useDebounce";
 import { TitleLanguage } from "@models/types";
-import { getItemTitle } from "@helpers";
+import { processITitle } from "@helpers";
 
 const QuickSearch = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -61,9 +61,9 @@ const QuickSearch = () => {
   };
 
   return (
-    <div id="quick-search" className="w-full h-full fixed z-10 hidden">
+    <div id="quick-search" className="w-full h-full fixed z-30 hidden">
       <div
-        className="fixed top-0 bottom-0 left-0 right-0 content-none -z-10 bg-grayedOut"
+        className="fixed top-0 bottom-0 left-0 right-0 content-none -z-20 bg-grayedOut"
         onClick={hideQuickSearch}
       />
       <div className="grid quick-search-bar items-center justify-center py-4 rounded-md absolute top-36 md:top-48 lg:top-56 z-30 bg-white text-grayedOut">
@@ -86,11 +86,11 @@ const QuickSearch = () => {
       >
         <div className="h-full px-4 py-4 md:py-16 lg:py-8 items-center webkit-rm-scrollbar overflow-y-scroll text-grayedOut">
           {searchResults.map((item: IAnimeResult) => {
-            const title: string | undefined = getItemTitle(
+            const romaji: string | undefined = processITitle(
               item.title,
               TitleLanguage.romaji
             );
-            if (title != undefined) {
+            if (romaji != undefined) {
               return (
                 <Link key={item.id} href={`/info/${item.id}`}>
                   <div
@@ -100,14 +100,14 @@ const QuickSearch = () => {
                     <div className="w-16 h-16 relative">
                       <Image
                         src={item.image!}
-                        alt={`Cover image for anime ${item.id}:${item.title} - (provided by AniList).`}
+                        alt={`Album image for the anime "${item.romaji}".`}
                         layout="fill"
                         objectFit="cover"
                         className="rounded"
                       />
                     </div>
                     <h3 className="w-4/5 text-sm sm:text-base font-medium mx-2 lg:mx-3 transition-all">
-                      {title}
+                      {romaji}
                     </h3>
                   </div>
                 </Link>
