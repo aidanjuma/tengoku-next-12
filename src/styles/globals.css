@@ -22,6 +22,29 @@ a {
   box-sizing: border-box;
 }
 
+/* Width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1a1a19;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #707179;
+  border-radius: 4px;
+}
+
+/* Handle on Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #707179;
+  border-radius: 4px;
+}
+
 @layer utilities {
   .fix-justify {
     word-spacing: -2px;

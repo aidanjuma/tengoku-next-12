@@ -41,7 +41,7 @@ const ContentSlider = (props: ContentType) => {
   if (!data) return <p>Requested data not found.</p>;
 
   return (
-    <div className="flex webkit-rm-scrollbar overflow-x-scroll w-full px-4">
+    <div className="flex webkit-rm-scrollbar overflow-x-scroll w-full px-4 pb-4">
       {data.map((item: IAnimeResult) => {
         const title: string | undefined = processITitle(
           item.title,
