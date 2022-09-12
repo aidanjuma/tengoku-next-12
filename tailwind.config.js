@@ -13,6 +13,7 @@ module.exports = {
     colors: {
       white: "#ffffff",
       offwhite: "#a9b6c3",
+      grayCard: "#2d333b",
       lightBlue: "#b4e5ef",
       pastelRed: "#ff6961b3",
       grayedOut: "#181818b3",

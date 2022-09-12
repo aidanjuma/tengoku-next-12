@@ -5,10 +5,20 @@ export interface ContentType {
   status: "POPULAR" | "TRENDING";
 }
 
-export interface InfoCoverData {
+export interface InformationProps {
+  id: string;
+  title: string | ITitle;
   cover?: string;
   image?: string;
+  description?: string;
+}
+
+export interface InfoTitleProps {
   title: string | ITitle;
+}
+
+export interface DisplayInfoProps {
+  description?: string;
 }
 
 export enum TitleLanguage {
