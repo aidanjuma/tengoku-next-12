@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@consumet/extensions": "^1.1.0",
+    "@consumet/extensions": "https://github.com/consumet/consumet.ts.git",
     "@heroicons/react": "^2.0.10",
     "html-react-parser": "^3.0.4",
     "next": "12.2.5",

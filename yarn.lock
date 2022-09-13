@@ -17,10 +17,9 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@consumet/extensions@^1.1.0":
+"@consumet/extensions@https://github.com/consumet/consumet.ts.git":
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@consumet/extensions/-/extensions-1.1.0.tgz#abdfd3981d75465bf8347ea1932555195ad5d48d"
-  integrity sha512-z+ntSxzxMk1C99OWPx6lyl2xUxOqC4eQFwV9I2bV7L5XqpKdeofvP33bI0i9Ls/SPVHFDTIchC/Y+vtIWtfIrQ==
+  resolved "https://github.com/consumet/consumet.ts.git#166c9e61c249f827a436cb73cfa4dfc086cdfcde"
   dependencies:
     ascii-url-encoder "^1.2.0"
     axios "^0.27.2"
