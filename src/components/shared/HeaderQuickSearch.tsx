@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import QuickSearch from "@components/shared/QuickSearch";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { SearchOutline } from "@easy-eva-icons/react";
 
 const HeaderQuickSearch = () => (
   <>
@@ -18,7 +18,7 @@ const HeaderQuickSearch = () => (
               className="hover:cursor-pointer"
             />
           </Link>
-          <MagnifyingGlassIcon
+          <SearchOutline
             className="w-8 h-8 text-white"
             cursor={"pointer"}
             onClick={revealQuickSearch}

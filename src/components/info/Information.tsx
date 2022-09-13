@@ -6,7 +6,7 @@ import { InformationProps } from "@models/types";
 
 const Information = (props: InformationProps) => {
   return (
-    <main className="w-full h-80 lg:h-96">
+    <main className="w-full h-80 lg:h-[500px]">
       <div className="overflow-hidden h-full">
         <div
           className="banner h-full"

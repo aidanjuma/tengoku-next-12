@@ -2,6 +2,7 @@ import Head from "next/head";
 import HeaderQuickSearch from "@components/shared/HeaderQuickSearch";
 import FeaturedContent from "@components/home/FeaturedContent";
 import ContentSlider from "@components/shared/ContentSlider";
+import Footer from "@components/shared/Footer";
 
 const Home = () => (
   <>
@@ -27,6 +28,7 @@ const Home = () => (
         </div>
         <ContentSlider medium="ANIME" status="POPULAR" />
       </section>
+      <Footer />
     </>
   </>
 );

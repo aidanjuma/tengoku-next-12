@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import { SearchOutline, CloseOutline } from "@easy-eva-icons/react";
 import { META } from "@consumet/extensions";
 import { ISearch, IAnimeResult } from "@consumet/extensions/dist/models";
 import { useDebounce } from "@hooks/useDebounce";
@@ -67,7 +67,7 @@ const QuickSearch = () => {
         onClick={hideQuickSearch}
       />
       <div className="grid quick-search-bar items-center justify-center py-4 rounded-md absolute top-36 md:top-48 lg:top-56 z-30 bg-white text-grayedOut">
-        <MagnifyingGlassIcon className="w-6 h-6 ml-3 mr-6" />
+        <SearchOutline className="w-6 h-6 ml-3 mr-6" />
         <input
           type="text"
           placeholder="Search..."
@@ -75,7 +75,7 @@ const QuickSearch = () => {
           className="w-full sm:w-96 focus:outline-none"
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <XMarkIcon
+        <CloseOutline
           className="w-6 h-6 ml-6 mr-3 transition-all hover:cursor-pointer hover:text-pastelRed"
           onClick={hideQuickSearch}
         />
