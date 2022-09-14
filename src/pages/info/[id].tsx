@@ -24,6 +24,7 @@ const InfoPage = ({ info }: { info: IAnimeInfo }) => {
           cover={typeof info.cover === "string" ? info.cover : undefined}
           image={info.image ?? undefined}
           description={info.description}
+          genres={info.genres}
         />
       </>
     </>

@@ -36,7 +36,7 @@ const Information = (props: InformationProps) => {
           </div>
         </div>
       </div>
-      <DisplayInfo description={props.description} />
+      <DisplayInfo description={props.description} genres={props.genres} />
     </main>
   );
 };

@@ -5,10 +5,25 @@ import { DisplayInfoProps } from "@models/types";
 const DisplayInfo = (props: DisplayInfoProps) => {
   return (
     <section id="display-info-section">
-      <div className="w-full h-fit max-h-96 px-8 mt-8">
+      <div className="w-full h-fit px-8 pt-4 pb-8">
         <h3 className="font-lexend font-normal mb-2">Description</h3>
         <div className="px-5 py-3 text-sm lg:text-xl rounded bg-onBackground">
           {parse(props.description!)}
+        </div>
+      </div>
+      <div className="w-full h-fit px-8 pt-2 pb-12">
+        <h3 className="font-lexend font-normal mb-2">Other Info</h3>
+        <div className="px-5 py-3 text-sm lg:text-xl rounded bg-onBackground">
+          <ul>
+            <li>
+              <p className="font-lexend font-medium">Genres: </p>
+              {props.genres?.map((item: string, i: number) => {
+                const genre =
+                  props.genres?.length === i + 1 ? item : `${item}, `;
+                return genre;
+              })}
+            </li>
+          </ul>
         </div>
       </div>
     </section>

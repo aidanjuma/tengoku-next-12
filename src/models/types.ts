@@ -11,6 +11,7 @@ export interface InformationProps {
   cover?: string;
   image?: string;
   description?: string;
+  genres?: string[];
 }
 
 export interface InfoTitleProps {
@@ -19,6 +20,7 @@ export interface InfoTitleProps {
 
 export interface DisplayInfoProps {
   description?: string;
+  genres?: string[];
 }
 
 export enum TitleLanguage {
