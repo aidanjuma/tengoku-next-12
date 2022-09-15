@@ -1,4 +1,4 @@
-import { ITitle } from "@consumet/extensions/dist/models/types";
+import { FuzzyDate, ITitle } from "@consumet/extensions/dist/models/types";
 import { TitleLanguage } from "@models/types";
 
 const evaluateTitleLanguage = (
@@ -25,4 +25,24 @@ export const processITitle = (
       : evaluateTitleLanguage(titleObj, language);
 
   return title;
+};
+
+export const handleFuzzyDate = (date: FuzzyDate) => {
+  const MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  if (date.day && date.month && date.year)
+    return `${date.day} ${MONTHS[date.month]} ${date.year}`;
 };

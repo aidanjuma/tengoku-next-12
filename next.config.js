@@ -5,6 +5,10 @@ const nextConfig = {
   images: {
     domains: ["s4.anilist.co"],
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 };
 
 module.exports = nextConfig;

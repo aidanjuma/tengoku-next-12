@@ -25,6 +25,9 @@ const InfoPage = ({ info }: { info: IAnimeInfo }) => {
           image={info.image ?? undefined}
           description={info.description}
           genres={info.genres}
+          startDate={info.startDate}
+          endDate={info.endDate}
+          status={info.status}
         />
       </>
     </>

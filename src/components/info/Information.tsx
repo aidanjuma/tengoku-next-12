@@ -36,7 +36,13 @@ const Information = (props: InformationProps) => {
           </div>
         </div>
       </div>
-      <DisplayInfo description={props.description} genres={props.genres} />
+      <DisplayInfo
+        description={props.description}
+        genres={props.genres}
+        status={props.status}
+        startDate={props.startDate}
+        endDate={props.endDate}
+      />
     </main>
   );
 };
