@@ -34,15 +34,17 @@ const DisplayInfo = (props: DisplayInfoProps) => {
                 {props.status}
               </li>
             )}
-            {props.startDate && (
+            {props.startDate?.day &&
+              props.startDate?.month &&
+              props.startDate?.year && (
+                <li>
+                  <p className="font-lexend font-medium">Start: </p>
+                  {handleFuzzyDate(props.startDate)}
+                </li>
+              )}
+            {props.endDate?.day && props.endDate?.month && props.endDate?.year && (
               <li>
-                <p className="font-lexend font-medium">Started: </p>
-                {handleFuzzyDate(props.startDate)}
-              </li>
-            )}
-            {props.endDate && (
-              <li>
-                <p className="font-lexend font-medium">Ended: </p>
+                <p className="font-lexend font-medium">End: </p>
                 {handleFuzzyDate(props.endDate)}
               </li>
             )}

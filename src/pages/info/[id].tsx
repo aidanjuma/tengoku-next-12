@@ -4,11 +4,17 @@ import HeaderQuickSearch from "@components/shared/HeaderQuickSearch";
 import Information from "@components/info/Information";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
-import { IAnimeInfo } from "@consumet/extensions/dist/models";
+import { IAnimeEpisode, IAnimeInfo } from "@consumet/extensions/dist/models";
 import { TitleLanguage } from "@models/types";
 import { processITitle } from "@helpers";
 
-const InfoPage = ({ info }: { info: IAnimeInfo }) => {
+const InfoPage = ({
+  info,
+  episodes,
+}: {
+  info: IAnimeInfo;
+  episodes: IAnimeEpisode[];
+}) => {
   return (
     <>
       <Head>
@@ -28,6 +34,7 @@ const InfoPage = ({ info }: { info: IAnimeInfo }) => {
           startDate={info.startDate}
           endDate={info.endDate}
           status={info.status}
+          episodes={episodes}
         />
       </>
     </>
@@ -37,11 +44,16 @@ const InfoPage = ({ info }: { info: IAnimeInfo }) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const anilist = new META.Anilist();
   const { id } = context.query;
-  const data: IAnimeInfo = await anilist.fetchAnilistInfoById(id as string);
-  const info = JSON.parse(JSON.stringify(data));
+
+  const infoData: IAnimeInfo = await anilist.fetchAnilistInfoById(id as string);
+  const info = JSON.parse(JSON.stringify(infoData));
+  const episodesData: IAnimeEpisode[] = await anilist.fetchEpisodesListById(
+    id as string
+  );
+  const episodes = JSON.parse(JSON.stringify(episodesData));
 
   return {
-    props: { info: info },
+    props: { info: info, episodes: episodes },
   };
 };
 

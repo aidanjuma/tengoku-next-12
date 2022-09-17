@@ -11,7 +11,7 @@ const FeaturedContent = () => (
             "url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/133844-uIaUmh5aJX3M.jpg)",
         }}
       />
-      <div className="grid w-full h-under-banner px-5 lg:px-20">
+      <div className="grid w-full h-under-banner px-5 lg:px-16">
         <div className="mt-[-190px] lg:mt-[-250px]">
           <div className="grid grid-cols-2 grid-rows-1">
             <div className="w-[160px] h-[226px] lg:w-[200px] lg:h-[282px] relative">

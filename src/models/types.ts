@@ -1,4 +1,8 @@
-import { FuzzyDate, ITitle } from "@consumet/extensions/dist/models/types";
+import {
+  FuzzyDate,
+  IAnimeEpisode,
+  ITitle,
+} from "@consumet/extensions/dist/models/types";
 
 export interface ContentType {
   medium: "ANIME" | "MANGA";
@@ -15,6 +19,7 @@ export interface InformationProps {
   startDate?: FuzzyDate;
   endDate?: FuzzyDate;
   status?: string;
+  episodes?: IAnimeEpisode[];
 }
 
 export interface InfoTitleProps {
@@ -27,6 +32,12 @@ export interface DisplayInfoProps {
   startDate?: FuzzyDate;
   endDate?: FuzzyDate;
   status?: string;
+}
+
+export interface WatchEpisodeProps {
+  id: string;
+  episodeId: string;
+  episodeNumber: number;
 }
 
 export enum TitleLanguage {
