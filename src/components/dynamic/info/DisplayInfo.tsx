@@ -1,7 +1,15 @@
 import React from "react";
 import parse from "html-react-parser";
-import { DisplayInfoProps } from "@models/types";
 import { handleFuzzyDate } from "@helpers";
+import { FuzzyDate } from "@consumet/extensions/dist/models";
+
+interface DisplayInfoProps {
+  description?: string;
+  genres?: string[];
+  startDate?: FuzzyDate;
+  endDate?: FuzzyDate;
+  status?: string;
+}
 
 const DisplayInfo = (props: DisplayInfoProps) => {
   return (

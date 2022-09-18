@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import HeaderQuickSearch from "@components/shared/HeaderQuickSearch";
-import Information from "@components/info/Information";
+import HeaderQuickSearch from "@components/static/shared/HeaderQuickSearch";
+import Information from "@components/dynamic/info/Information";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
 import { IAnimeEpisode, IAnimeInfo } from "@consumet/extensions/dist/models";

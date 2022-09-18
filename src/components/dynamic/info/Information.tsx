@@ -1,9 +1,26 @@
 import React from "react";
 import Image from "next/image";
-import InfoTitle from "@components/info/InfoTitle";
-import WatchEpisodeButton from "@components/info/WatchEpisodeButton";
-import DisplayInfo from "@components/info/DisplayInfo";
-import { InformationProps } from "@models/types";
+import InfoTitle from "@components/dynamic/info/InfoTitle";
+import WatchEpisodeButton from "@components/dynamic/info/WatchEpisodeButton";
+import DisplayInfo from "@components/dynamic/info/DisplayInfo";
+import {
+  FuzzyDate,
+  IAnimeEpisode,
+  ITitle,
+} from "@consumet/extensions/dist/models";
+
+export interface InformationProps {
+  id: string;
+  title: string | ITitle;
+  cover?: string;
+  image?: string;
+  description?: string;
+  genres?: string[];
+  startDate?: FuzzyDate;
+  endDate?: FuzzyDate;
+  status?: string;
+  episodes?: IAnimeEpisode[];
+}
 
 const Information = (props: InformationProps) => {
   return (
@@ -40,7 +57,7 @@ const Information = (props: InformationProps) => {
           <WatchEpisodeButton
             id={props.id}
             episodeId={props.episodes![0].id}
-            episodeNumber={1}
+            episodeNumber={"1"}
           />
         )}
       </div>

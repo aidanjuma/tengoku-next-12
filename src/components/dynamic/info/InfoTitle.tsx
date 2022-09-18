@@ -1,9 +1,10 @@
 import { processITitle } from "@helpers";
-import { InfoTitleProps, TitleLanguage } from "@models/types";
+import { TitleLanguage } from "@models/types";
+import { ITitle } from "@consumet/extensions/dist/models";
 
-const InfoTitle = (props: InfoTitleProps) => {
-  const romaji = processITitle(props.title, TitleLanguage.romaji);
-  const native = processITitle(props.title, TitleLanguage.native);
+const InfoTitle = ({ title }: { title: string | ITitle }) => {
+  const romaji = processITitle(title, TitleLanguage.romaji);
+  const native = processITitle(title, TitleLanguage.native);
 
   return (
     <div className="text-white max-h-40 pt-4">

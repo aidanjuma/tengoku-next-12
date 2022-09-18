@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import QuickSearch from "@components/shared/QuickSearch";
+import QuickSearch from "@components/dynamic/shared/QuickSearch";
 import { SearchOutline } from "@easy-eva-icons/react";
 
 const HeaderQuickSearch = () => (
