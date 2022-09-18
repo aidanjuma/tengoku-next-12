@@ -3,7 +3,11 @@ import Head from "next/head";
 import HeaderQuickSearch from "@components/static/shared/HeaderQuickSearch";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
-import { IAnimeInfo, ISource } from "@consumet/extensions/dist/models";
+import {
+  IAnimeInfo,
+  ISource,
+  IAnimeEpisode,
+} from "@consumet/extensions/dist/models";
 import { TitleLanguage } from "@models/types";
 import { processITitle } from "@helpers";
 
@@ -16,6 +20,8 @@ const WatchEpisodePage = ({
   episodeNumber: string;
   episode: ISource;
 }) => {
+  const episodeInfo: IAnimeEpisode | undefined =
+    anime.episodes![(episodeNumber as unknown as number) - 1];
   const animeTitle = processITitle(anime.title, TitleLanguage.romaji);
   return (
     <>
@@ -23,6 +29,17 @@ const WatchEpisodePage = ({
         <title>
           天国 • Ep. {episodeNumber} | {animeTitle}
         </title>
+        <meta
+          name="og:description"
+          content={`Watch "${animeTitle}": Episode ${episodeNumber} via tengoku.stream! About this episode: "${
+            episodeInfo!.description
+          }"`}
+        />
+        <meta name="og:theme-color" content={anime.color ?? "#b4e5ef"} />
+        <meta
+          name="og:image"
+          content={episodeInfo.image! || anime.cover! || anime.image!}
+        />
       </Head>
       <>
         <HeaderQuickSearch />
@@ -36,9 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const anilist = new META.Anilist();
   const { id, episodeId } = context.query;
 
-  const animeData: IAnimeInfo = await anilist.fetchAnilistInfoById(
-    id as string
-  );
+  const animeData: IAnimeInfo = await anilist.fetchAnimeInfo(id as string);
   const anime = JSON.parse(JSON.stringify(animeData));
   const episodeData: ISource = await anilist.fetchEpisodeSources(
     episodeId as string

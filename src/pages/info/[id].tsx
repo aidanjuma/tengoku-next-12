@@ -19,8 +19,9 @@ const InfoPage = ({
     <>
       <Head>
         <title>天国 • {processITitle(info.title, TitleLanguage.romaji)}</title>
-        <meta name="description" content={info.description!} />
-        <meta name="theme-color" content={info.color ?? "#000000"} />
+        <meta name="og:description" content={info.description!} />
+        <meta name="og:theme-color" content={info.color ?? "#b4e5ef"} />
+        <meta name="og:image" content={info.image! || info.cover!} />
       </Head>
       <>
         <HeaderQuickSearch />

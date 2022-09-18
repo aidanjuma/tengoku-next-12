@@ -9,7 +9,7 @@ const Home = () => (
     <Head>
       <title>天国 • Anime &amp; Manga</title>
       <meta
-        name="description"
+        name="og:description"
         content="Find your favourite Japanese media on 天国 (tengoku)! Built with Consumet, Next & React."
       />
     </Head>
