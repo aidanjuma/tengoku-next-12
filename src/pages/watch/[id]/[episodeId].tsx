@@ -40,9 +40,9 @@ const WatchEpisodePage = ({
         />
         <meta
           name="og:description"
-          content={`Watch ${animeTitle}: Episode ${episodeNumber} via tengoku.stream! About this episode: "${
+          content={`Watch ${animeTitle}: Episode ${episodeNumber} via tengoku.stream!\n\n${
             episodeInfo!.description
-          }"`}
+          }`}
         />
         <meta
           name="og:image"
