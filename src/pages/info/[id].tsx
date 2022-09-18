@@ -21,9 +21,15 @@ const InfoPage = ({
       <Head>
         <title>天国 • {animeTitle}</title>
         <meta name="og:title" content={animeTitle} />
+        <meta name="og:type" content="website" />
+        <meta
+          name="og:url"
+          content={`https://tengoku.stream/info/${info.id}`}
+        />
         <meta name="og:description" content={info.description!} />
-        <meta name="og:theme-color" content={info.color ?? "#b4e5ef"} />
         <meta name="og:image" content={info.cover! || info.image!} />
+        <meta name="og:theme-color" content={info.color ?? "#b4e5ef"} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <>
         <HeaderQuickSearch />
