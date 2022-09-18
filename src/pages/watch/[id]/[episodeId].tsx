@@ -30,6 +30,10 @@ const WatchEpisodePage = ({
           天国 • Ep. {episodeNumber} | {animeTitle}
         </title>
         <meta
+          name="og:title"
+          content={`${animeTitle} Ep. ${episodeNumber} | ${episodeInfo.title!}`}
+        />
+        <meta
           name="og:description"
           content={`Watch "${animeTitle}": Episode ${episodeNumber} via tengoku.stream! About this episode: "${
             episodeInfo!.description

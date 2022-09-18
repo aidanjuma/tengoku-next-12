@@ -15,13 +15,15 @@ const InfoPage = ({
   info: IAnimeInfo;
   episodes: IAnimeEpisode[];
 }) => {
+  const animeTitle = processITitle(info.title, TitleLanguage.romaji);
   return (
     <>
       <Head>
-        <title>天国 • {processITitle(info.title, TitleLanguage.romaji)}</title>
+        <title>天国 • {animeTitle}</title>
+        <meta name="og:title" content={animeTitle} />
         <meta name="og:description" content={info.description!} />
         <meta name="og:theme-color" content={info.color ?? "#b4e5ef"} />
-        <meta name="og:image" content={info.image! || info.cover!} />
+        <meta name="og:image" content={info.cover! || info.image!} />
       </Head>
       <>
         <HeaderQuickSearch />
