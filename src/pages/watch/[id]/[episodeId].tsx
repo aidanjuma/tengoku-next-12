@@ -33,17 +33,23 @@ const WatchEpisodePage = ({
           name="og:title"
           content={`${animeTitle} Ep. ${episodeNumber} | ${episodeInfo.title!}`}
         />
+        <meta name="og:type" content="website" />
+        <meta
+          name="og:url"
+          content={`https://tengoku.stream/watch/${anime.id}/${episodeInfo.id}`}
+        />
         <meta
           name="og:description"
-          content={`Watch "${animeTitle}": Episode ${episodeNumber} via tengoku.stream! About this episode: "${
+          content={`Watch ${animeTitle}: Episode ${episodeNumber} via tengoku.stream! About this episode: "${
             episodeInfo!.description
           }"`}
         />
-        <meta name="og:theme-color" content={anime.color ?? "#b4e5ef"} />
         <meta
           name="og:image"
           content={episodeInfo.image! || anime.cover! || anime.image!}
         />
+        <meta name="theme-color" content={anime.color ?? "#b4e5ef"} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <>
         <HeaderQuickSearch />

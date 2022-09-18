@@ -28,7 +28,7 @@ const InfoPage = ({
         />
         <meta name="og:description" content={info.description!} />
         <meta name="og:image" content={info.cover! || info.image!} />
-        <meta name="og:theme-color" content={info.color ?? "#b4e5ef"} />
+        <meta name="theme-color" content={info.color ?? "#b4e5ef"} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <>
