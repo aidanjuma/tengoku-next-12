@@ -1,7 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import HeaderQuickSearch from "@components/static/shared/HeaderQuickSearch";
-import Information from "@components/dynamic/info/Information";
+import InfoHero from "@components/dynamic/info/InfoHero";
+import DisplayInfo from "@components/dynamic/info/DisplayInfo";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
 import { IAnimeEpisode, IAnimeInfo } from "@consumet/extensions/dist/models";
@@ -33,17 +34,20 @@ const InfoPage = ({
       </Head>
       <>
         <HeaderQuickSearch />
-        <Information
+        <InfoHero
           id={info.id}
           title={info.title}
           cover={typeof info.cover === "string" ? info.cover : undefined}
           image={info.image ?? undefined}
           description={info.description}
+          episodes={episodes}
+        />
+        <DisplayInfo
+          description={info.description}
           genres={info.genres}
+          status={info.status}
           startDate={info.startDate}
           endDate={info.endDate}
-          status={info.status}
-          episodes={episodes}
         />
       </>
     </>
