@@ -16,13 +16,13 @@ const Home = () => (
     <>
       <HeaderQuickSearch />
       <FeaturedContent />
-      <section id="trending-anime-section">
+      <section id="trending-anime">
         <div className="flex justify-center items-center font-semibold text-3xl pb-8">
           <h2>Trending Anime</h2>
         </div>
         <ContentSlider medium="ANIME" status="TRENDING" />
       </section>
-      <section id="popular-anime-section" className="pt-8">
+      <section id="popular-anime" className="pt-8">
         <div className="flex justify-center items-center font-semibold text-3xl pb-8">
           <h2>Popular Anime</h2>
         </div>

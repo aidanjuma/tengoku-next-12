@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 const FeaturedContent = () => (
-  <section id="featured-content-section">
+  <section id="featured-content">
     <div className="w-full h-[27.5rem] lg:h-[36rem]">
       <div
         className="banner h-[380px] lg:h-[500px]"

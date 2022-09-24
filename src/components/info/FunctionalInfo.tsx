@@ -15,7 +15,7 @@ interface FunctionalInfoProps {
 const FunctionalInfo = (props: FunctionalInfoProps) => {
   return (
     /* Main: Content needed for functional routing to episode page. */
-    <main id="main-info">
+    <main>
       {/* Album image: i.e. profile picture for anime. */}
       <div className="w-full h-fit">
         <div className="grid w-full h-fit px-5 lg:px-20">
