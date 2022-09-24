@@ -1,7 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import HeaderQuickSearch from "@components/static/shared/HeaderQuickSearch";
-import InfoHero from "@components/dynamic/info/InfoHero";
+import InfoCover from "@components/dynamic/info/InfoCover";
+import FunctionalInfo from "@components/dynamic/info/FunctionalInfo";
 import DisplayInfo from "@components/dynamic/info/DisplayInfo";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
@@ -34,10 +35,13 @@ const InfoPage = ({
       </Head>
       <>
         <HeaderQuickSearch />
-        <InfoHero
+        <InfoCover
+          id={info.id}
+          cover={typeof info.cover === "string" ? info.cover : undefined}
+        />
+        <FunctionalInfo
           id={info.id}
           title={info.title}
-          cover={typeof info.cover === "string" ? info.cover : undefined}
           image={info.image ?? undefined}
           description={info.description}
           episodes={episodes}

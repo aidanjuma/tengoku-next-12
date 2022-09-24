@@ -4,29 +4,18 @@ import InfoTitle from "@components/dynamic/info/InfoTitle";
 import WatchEpisodeButton from "@components/dynamic/info/WatchEpisodeButton";
 import { IAnimeEpisode, ITitle } from "@consumet/extensions/dist/models";
 
-export interface InfoHeroProps {
+interface FunctionalInfoProps {
   id: string;
   title: string | ITitle;
-  cover?: string;
   image?: string;
   description?: string;
   episodes?: IAnimeEpisode[];
 }
 
-const InfoHero = (props: InfoHeroProps) => {
+const FunctionalInfo = (props: FunctionalInfoProps) => {
   return (
-    /* Hero: Album/Cover images, watch first episode button. */
-    <main className="w-full h-[40vh] lg:h-[500px]" id="info-hero">
-      {/* Cover image: i.e. full-spread image for anime. */}
-      <div className="overflow-hidden h-full">
-        <div
-          className="banner h-full"
-          style={{
-            backgroundImage: `url(${props.cover})`,
-            filter: "blur(0.25rem)",
-          }}
-        />
-      </div>
+    /* Main: Content needed for functional routing to episode page. */
+    <main>
       {/* Album image: i.e. profile picture for anime. */}
       <div className="w-full h-fit">
         <div className="grid w-full h-fit px-5 lg:px-20">
@@ -62,4 +51,4 @@ const InfoHero = (props: InfoHeroProps) => {
   );
 };
 
-export default InfoHero;
+export default FunctionalInfo;
