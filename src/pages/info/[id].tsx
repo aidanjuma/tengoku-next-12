@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import HeaderQuickSearch from "@components/static/shared/HeaderQuickSearch";
-import InfoCover from "@components/dynamic/info/InfoCover";
-import FunctionalInfo from "@components/dynamic/info/FunctionalInfo";
-import DisplayInfo from "@components/dynamic/info/DisplayInfo";
+import HeaderQuickSearch from "@components/utility/HeaderQuickSearch";
+import InfoCover from "@components/info/InfoCover";
+import FunctionalInfo from "@components/info/FunctionalInfo";
+import DisplayInfo from "@components/info/DisplayInfo";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
 import { IAnimeEpisode, IAnimeInfo } from "@consumet/extensions/dist/models";

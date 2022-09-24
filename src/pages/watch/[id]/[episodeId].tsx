@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import HeaderQuickSearch from "@components/static/shared/HeaderQuickSearch";
+import HeaderQuickSearch from "@components/utility/HeaderQuickSearch";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
 import {

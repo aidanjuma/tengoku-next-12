@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import InfoTitle from "@components/dynamic/info/InfoTitle";
-import WatchEpisodeButton from "@components/dynamic/info/WatchEpisodeButton";
+import InfoTitle from "@components/info/InfoTitle";
+import WatchEpisodeButton from "@components/episode/WatchEpisodeButton";
 import { IAnimeEpisode, ITitle } from "@consumet/extensions/dist/models";
 
 interface FunctionalInfoProps {
@@ -15,7 +15,7 @@ interface FunctionalInfoProps {
 const FunctionalInfo = (props: FunctionalInfoProps) => {
   return (
     /* Main: Content needed for functional routing to episode page. */
-    <main>
+    <main id="main-info">
       {/* Album image: i.e. profile picture for anime. */}
       <div className="w-full h-fit">
         <div className="grid w-full h-fit px-5 lg:px-20">

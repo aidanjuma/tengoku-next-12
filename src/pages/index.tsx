@@ -1,8 +1,8 @@
 import Head from "next/head";
-import HeaderQuickSearch from "@components/static/shared/HeaderQuickSearch";
-import FeaturedContent from "@components/static/home/FeaturedContent";
-import ContentSlider from "@components/dynamic/shared/ContentSlider";
-import Footer from "@components/static/shared/Footer";
+import HeaderQuickSearch from "@components/utility/HeaderQuickSearch";
+import FeaturedContent from "@components/home/FeaturedContent";
+import ContentSlider from "@components/utility/ContentSlider";
+import Footer from "@components/utility/Footer";
 
 const Home = () => (
   <>
