@@ -36,7 +36,7 @@ const EpisodeListItem = ({
       <div
         className="w-[35%] mr-[5vw] rounded-md md:rounded-lg"
         style={{
-          backgroundImage: `url(${episode.image})`,
+          backgroundImage: `url(https://images.weserv.nl/?url=${episode.image})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
