@@ -15,7 +15,7 @@ const WatchEpisodeButton = ({
 
   return (
     <button
-      className="watch-episode-button w-36 h-10 rounded font-dmsans font-medium text-sm transition-all hover:scale-105 active:scale-95 bg-pastelRed"
+      className="w-36 h-10 rounded font-dmsans font-medium text-sm transition-all hover:scale-105 active:scale-95 bg-pastelRed"
       onClick={() =>
         router.push({
           pathname: `/watch/${id}/${episodeId}`,

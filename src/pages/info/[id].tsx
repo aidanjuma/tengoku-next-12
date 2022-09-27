@@ -54,7 +54,9 @@ const InfoPage = ({
           startDate={info.startDate}
           endDate={info.endDate}
         />
-        {episodes && <EpisodeList episodes={episodes} />}
+        {episodes.length != 0 && (
+          <EpisodeList animeId={info.id} episodes={episodes} />
+        )}
       </>
     </>
   );

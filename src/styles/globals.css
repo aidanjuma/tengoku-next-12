@@ -78,3 +78,9 @@ a {
 .ul-spacing li:not(:last-child) {
   margin-bottom: 6px;
 }
+
+.bind-episode-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
