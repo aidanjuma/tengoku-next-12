@@ -7,23 +7,24 @@ const EpisodeList = ({
   episodes,
 }: {
   animeId: string;
-  episodes: IAnimeEpisode[];
+  episodes?: IAnimeEpisode[];
 }) => {
   return (
     <section id="episodes">
       <div className="px-8 pb-8">
         <h3 className="font-lexend font-normal mb-2">Episodes</h3>
-        {episodes.map((episode: IAnimeEpisode, i: number) => {
-          return (
-            <EpisodeListItem
-              key={episode.id}
-              animeId={animeId}
-              episode={episode}
-              first={i === 0 ? true : false}
-              last={episode === episodes[episodes.length - 1] ? true : false}
-            />
-          );
-        })}
+        {episodes &&
+          episodes.map((episode: IAnimeEpisode, i: number) => {
+            return (
+              <EpisodeListItem
+                key={episode.id}
+                animeId={animeId}
+                episode={episode}
+                first={i === 0 ? true : false}
+                last={episode === episodes[episodes.length - 1] ? true : false}
+              />
+            );
+          })}
       </div>
     </section>
   );

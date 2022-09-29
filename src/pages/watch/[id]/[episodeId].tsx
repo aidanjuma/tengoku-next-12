@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import HeaderQuickSearch from "@components/utility/HeaderQuickSearch";
 import { GetServerSideProps } from "next";
 import { META } from "@consumet/extensions";
 import {
   IAnimeInfo,
-  ISource,
   IAnimeEpisode,
+  IVideo,
 } from "@consumet/extensions/dist/models";
 import { TitleLanguage } from "@models/types";
 import { processITitle } from "@helpers";
@@ -14,15 +14,30 @@ import { processITitle } from "@helpers";
 const WatchEpisodePage = ({
   anime,
   episodeNumber,
-  episode,
 }: {
   anime: IAnimeInfo;
   episodeNumber: string;
-  episode: ISource;
 }) => {
   const episodeInfo: IAnimeEpisode | undefined =
     anime.episodes![(episodeNumber as unknown as number) - 1];
   const animeTitle = processITitle(anime.title, TitleLanguage.romaji);
+
+  const [episode, setEpisode] = useState<IVideo[] | null>(null);
+  const [isLoading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://api.consumet.org/meta/anilist/watch/${episodeInfo.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.error) {
+          setEpisode(data.sources[0]);
+          setLoading(false);
+        }
+        setLoading(false);
+      });
+  }, [episodeInfo.id]);
+
   return (
     <>
       <Head>
@@ -65,10 +80,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const animeData: IAnimeInfo = await anilist.fetchAnimeInfo(id as string);
   const anime = JSON.parse(JSON.stringify(animeData));
-  const episodeData: ISource = await anilist.fetchEpisodeSources(
-    episodeId as string
-  );
-  const episode = JSON.parse(JSON.stringify(episodeData));
 
   return {
     props: {
@@ -76,7 +87,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       episodeNumber: (episodeId as string).substring(
         (episodeId as string).lastIndexOf("-") + 1
       ),
-      episode: episode,
     },
   };
 };

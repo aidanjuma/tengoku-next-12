@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import HeaderQuickSearch from "@components/utility/HeaderQuickSearch";
 import InfoCover from "@components/info/InfoCover";
@@ -11,14 +11,25 @@ import { IAnimeEpisode, IAnimeInfo } from "@consumet/extensions/dist/models";
 import { TitleLanguage } from "@models/types";
 import { processITitle } from "@helpers";
 
-const InfoPage = ({
-  info,
-  episodes,
-}: {
-  info: IAnimeInfo;
-  episodes: IAnimeEpisode[];
-}) => {
+const InfoPage = ({ info }: { info: IAnimeInfo }) => {
   const animeTitle = processITitle(info.title, TitleLanguage.romaji);
+
+  const [episodes, setEpisodes] = useState<IAnimeEpisode[] | null>(null);
+  const [isLoading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://api.consumet.org/meta/anilist/episodes/${info.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.error) {
+          setLoading(false);
+          setEpisodes(data);
+        }
+        setLoading(false);
+      });
+  }, [info.id]);
+
   return (
     <>
       <Head>
@@ -45,7 +56,7 @@ const InfoPage = ({
           title={info.title}
           image={info.image ?? undefined}
           description={info.description}
-          episodes={episodes}
+          episodes={episodes!}
         />
         <DisplayInfo
           description={info.description}
@@ -54,9 +65,8 @@ const InfoPage = ({
           startDate={info.startDate}
           endDate={info.endDate}
         />
-        {episodes.length != 0 && (
-          <EpisodeList animeId={info.id} episodes={episodes} />
-        )}
+        {isLoading && <p>Loading...</p>}
+        {episodes && <EpisodeList animeId={info.id} episodes={episodes} />}
       </>
     </>
   );
@@ -68,13 +78,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const infoData: IAnimeInfo = await anilist.fetchAnilistInfoById(id as string);
   const info = JSON.parse(JSON.stringify(infoData));
-  const episodesData: IAnimeEpisode[] = await anilist.fetchEpisodesListById(
-    id as string
-  );
-  const episodes = JSON.parse(JSON.stringify(episodesData));
 
   return {
-    props: { info: info, episodes: episodes },
+    props: { info: info },
   };
 };
 
