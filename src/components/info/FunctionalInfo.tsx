@@ -38,7 +38,7 @@ const FunctionalInfo = (props: FunctionalInfoProps) => {
         </div>
         {/* Click button: watch first episode. */}
         <div className="flex flex-col items-center pt-5 w-full h-fit">
-          {props.episodes && props.episodes!.length > 1 && (
+          {props.episodes && props.episodes!.length >= 1 && (
             <WatchEpisodeButton
               id={props.id}
               episodeId={props.episodes![0].id}
