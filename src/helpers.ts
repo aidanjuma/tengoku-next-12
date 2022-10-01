@@ -44,5 +44,5 @@ export const handleFuzzyDate = (date: FuzzyDate) => {
   ];
 
   if (date.day && date.month && date.year)
-    return `${date.day} ${MONTHS[date.month]} ${date.year}`;
+    return `${date.day} ${MONTHS[date.month - 1]} ${date.year}`;
 };
