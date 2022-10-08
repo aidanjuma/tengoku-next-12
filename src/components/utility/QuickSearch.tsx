@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { SearchOutline, CloseOutline } from "@easy-eva-icons/react";
 import { META } from "@consumet/extensions";
 import { ISearch, IAnimeResult } from "@consumet/extensions/dist/models";
 import { useDebounce } from "@hooks/useDebounce";
-import { TitleLanguage } from "@models/types";
-import { processITitle } from "@helpers";
+import { SearchOutline, CloseOutline } from "@easy-eva-icons/react";
+import QuickSearchItem from "@components/utility/QuickSearchItem";
 
 const QuickSearch = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -85,35 +82,13 @@ const QuickSearch = () => {
         className="hidden mt-48 lg:mt-64 mb-[20vh] w-[17.5rem] sm:w-[31rem] rounded-b bg-white"
       >
         <div className="h-full px-4 py-4 md:py-16 lg:py-8 items-center webkit-rm-scrollbar overflow-y-scroll text-grayedOut">
-          {searchResults.map((item: IAnimeResult) => {
-            const romaji: string | undefined = processITitle(
-              item.title,
-              TitleLanguage.romaji
-            );
-            if (romaji != undefined) {
-              return (
-                <Link key={item.id} href={`/info/${item.id}`}>
-                  <div
-                    className="flex flex-row items-center py-2 hover:cursor-pointer hover:text-lightBlue"
-                    onClick={hideQuickSearch}
-                  >
-                    <div className="w-16 h-16 relative">
-                      <Image
-                        src={item.image!}
-                        alt={`Album image for the anime "${item.romaji}".`}
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded"
-                      />
-                    </div>
-                    <h3 className="w-4/5 text-sm sm:text-base font-medium mx-2 lg:mx-3 transition-all">
-                      {romaji}
-                    </h3>
-                  </div>
-                </Link>
-              );
-            }
-          })}
+          {searchResults.map((item: IAnimeResult) => (
+            <QuickSearchItem
+              key={item.id}
+              item={item}
+              hideQuickSearch={hideQuickSearch}
+            />
+          ))}
         </div>
       </div>
     </div>
